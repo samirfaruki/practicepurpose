@@ -45,6 +45,35 @@ app.get("/api/v1/tours/:id", (req, res) => {
   // });
   res.send(tourByid);
 });
+// patchh  fi
+app.patch("/api/v1/tours/:id", (req, res) => {
+  // const id = req.params.id * 1;
+  // let newLen = len - 1;
+  if (req.params.id * 1 > tours.length) {
+    res.status(404).send("invalid");
+  }
+
+  let newtourByid = tours.find((ele) => ele.id === id);
+  let updatedTours = tours.push(newtourByid);
+  console.log(updatedTours);
+
+  res.send("updated");
+});
+
+// delete ???
+app.delete("/api/v1/tours/:id", (req, res) => {
+  // const id = req.params.id * 1;
+  // let newLen = len - 1;
+  if (req.params.id * 1 > tours.length) {
+    res.status(404).send("invalid");
+  }
+
+  // let newtourByid = tours.find((ele) => ele.id === id);
+  // let updatedTours = tours.push(newtourByid);
+  // console.log(updatedTours);
+
+  res.send("deleted");
+});
 
 //  post api
 const newTour = {};
